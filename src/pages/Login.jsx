@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
 import Button from '../components/ui/Button.jsx'
 import Card from '../components/ui/Card.jsx'
 import { useAuth } from '../context/useAuth.js'
 
 export default function Login() {
-  const { signIn } = useAuth()
+  const { signIn, user } = useAuth()
   const navigate = useNavigate()
   const location = useLocation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
+  if (user) return <Navigate to="/dashboard" replace />
 
   async function submit(event) {
     event.preventDefault()
@@ -28,6 +30,7 @@ export default function Login() {
       <div className="gradient-mesh" aria-hidden="true" />
       <Card className="w-full max-w-md">
         <h1 className="text-2xl font-semibold">Sign in to ProPortal</h1>
+        {location.state?.message && <p className="mt-3 rounded-xl border border-emerald-300/20 bg-emerald-400/10 px-3 py-2 text-sm text-emerald-200">{location.state.message}</p>}
         <form onSubmit={submit} className="mt-6 space-y-4">
           <input className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none" placeholder="Email" value={email} onChange={(event) => setEmail(event.target.value)} />
           <input type="password" className="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm outline-none" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
