@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-programs: #6366f1;
+  --color-portfolio: #10b981;
+  --color-risks: #f43f5e;
+  --color-stakeholders: #f59e0b;
+  --color-budget: #06b6d4;
+  --color-reports: #8b5cf6;
+  --color-milestones: #ec4899;
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #070817;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.gradient-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(99, 102, 241, 0.42), transparent 28%),
+    radial-gradient(circle at 84% 12%, rgba(16, 185, 129, 0.24), transparent 30%),
+    radial-gradient(circle at 70% 82%, rgba(236, 72, 153, 0.22), transparent 32%),
+    linear-gradient(125deg, #0f0c29, #302b63 45%, #24243e);
+  background-size: 160% 160%;
+  animation: meshShift 18s ease-in-out infinite;
+}
+
+.gradient-mesh::before,
+.gradient-mesh::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 30% 40%, rgba(6, 182, 212, 0.22), transparent 24%),
+    radial-gradient(circle at 75% 55%, rgba(139, 92, 246, 0.22), transparent 30%);
+  filter: blur(28px);
+  animation: meshFloat 24s ease-in-out infinite alternate;
+}
+
+.gradient-mesh::after {
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+  opacity: 0.75;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+@keyframes meshShift {
+  0% {
+    background-position: 0% 45%;
+  }
+  50% {
+    background-position: 100% 55%;
+  }
+  100% {
+    background-position: 0% 45%;
+  }
+}
+
+@keyframes meshFloat {
+  0% {
+    transform: translate3d(-3%, -2%, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translate3d(4%, 3%, 0) rotate(8deg) scale(1.06);
+  }
+}
