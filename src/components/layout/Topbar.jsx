@@ -1,11 +1,8 @@
 import { Bell, Moon, Search, Sun } from 'lucide-react'
-import Button from '../ui/Button.jsx'
-import { useAuth } from '../../context/useAuth.js'
 import { useAppContext } from '../../context/useAppContext.js'
 
 export default function Topbar() {
   const { theme, toggleTheme } = useAppContext()
-  const { user, signOut } = useAuth()
 
   return (
     <header className="sticky top-0 z-20 border-b border-white/10 bg-black/20 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-8">
@@ -42,8 +39,6 @@ export default function Topbar() {
           >
             {theme === 'dark' ? <Moon size={18} /> : <Sun size={18} />}
           </button>
-          <span className="hidden max-w-48 truncate text-sm text-slate-300 lg:inline">{user?.email}</span>
-          <Button variant="ghost" className="hidden h-10 px-3 sm:inline-flex" onClick={signOut}>Sign Out</Button>
           <div className="h-10 w-10 rounded-full border border-white/15 bg-gradient-to-br from-cyan-300 via-indigo-400 to-rose-400" />
         </div>
       </div>

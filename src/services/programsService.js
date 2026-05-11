@@ -55,9 +55,7 @@ export async function getProgramById(id) {
 
 export async function createProgram(program) {
   const db = requireSupabase()
-  const { data: userData, error: userError } = await db.auth.getUser()
-  if (userError) throw userError
-  const { data, error } = await db.from('programs').insert({ ...toProgramRow(program), user_id: userData.user.id }).select('*').single()
+  const { data, error } = await db.from('programs').insert(toProgramRow(program)).select('*').single()
   if (error) throw error
   return mapProgram(data)
 }
