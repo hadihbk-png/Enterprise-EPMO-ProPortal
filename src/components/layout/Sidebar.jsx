@@ -19,7 +19,7 @@ const items = [
   { label: 'Dashboard', path: '/dashboard', icon: Gauge, color: '#94a3b8' },
   { label: 'Programs', path: '/programs', icon: BriefcaseBusiness, color: 'var(--color-programs)' },
   { label: 'Portfolio', path: '/portfolio', icon: PieChart, color: 'var(--color-portfolio)' },
-  { label: 'Risks & Issues', path: '/risks-issues', icon: ShieldAlert, color: 'var(--color-risks)' },
+  { label: 'Risks & Issues', path: '/risks', icon: ShieldAlert, color: 'var(--color-risks)' },
   { label: 'Stakeholders', path: '/stakeholders', icon: Users, color: 'var(--color-stakeholders)' },
   { label: 'Budget', path: '/budget', icon: Landmark, color: 'var(--color-budget)' },
   { label: 'Milestones', path: '/milestones', icon: CalendarCheck, color: 'var(--color-milestones)' },
